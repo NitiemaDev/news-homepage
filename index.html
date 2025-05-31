@@ -2,138 +2,271 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Figtree:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Overpass:ital,wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Playwrite+MX+Guides&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Young+Serif&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
-    <title>Frontend Mentor | News homepage</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <style>
-        .attribution { 
-            font-size: 11px; 
-            text-align: center; 
+    <style type="text/tailwindcss">
+
+        @theme {
+            --soft-orange: hsl(35, 77%, 62%);
+            --soft-red: hsl(5, 85%, 63%);
+
+            --off-white: hsl(36, 100%, 99%);
+            --grayish-blue: hsl(233, 8%, 79%);
+            --dark-grayish-blue: hsl(236, 13%, 42%);
+            --very-dark-blue: hsl(240, 100%, 5%);
+
+            --font-inter: "Inter", sans-serif;
         }
-        .attribution a { 
-            color: hsl(228, 45%, 44%); 
+
+        @layer utilities {
+
+            .hover\:text-soft-orange:hover {
+                color: var(--soft-orange);
+            }
+
+            .hover\:bg-very-dark-blue:hover {
+                background-color: var(--very-dark-blue);
+            }
+
+            .hover\:text-off-white:hover {
+                color: var(--off-white);
+            }
+
+            .hover\:text-soft-red:hover {
+                color: var(--soft-red);
+            }
+
+            /* text */
+
+            .text-soft-orange {
+                color: var(--soft-orange);
+            }
+
+            .text-off-white {
+                color: var(--off-white);
+            }
+
+            .text-soft-red {
+                color: var(--soft-red);
+            }
+
+            .text-grayish-blue {
+                color: var(--grayish-blue);
+            }
+
+            .text-dark-grayish-blue {
+                color: var(--dark-grayish-blue);
+            }
+            .text-very-dark-blue {
+                color: var(--very-dark-blue);
+            }
+
+            /* background */
+            .bg-off-white {
+                background-color: var(--off-white);
+            }
+
+            .bg-soft-orange {
+                background-color: var(--soft-orange);
+            }
+
+            .bg-soft-red {
+                background-color: var(--soft-red);
+            }
+
+            .bg-very-dark-blue {
+                background-color: var(--very-dark-blue);
+            }
+
+            /* border */
+
+            .border-b-grayish-blue {
+                border-bottom-color: var(--grayish-blue);
+            }
+
+            /* font */
+            .font-inter {
+                font-family: var(--font-inter);
+            }
+
+            /* Attribution */
+            .attribution {
+                font-size: 11px;
+                text-align: center;
+            }
+            .attribution a {
+                color: var(--soft-red);
+            }
         }
     </style>
+
+
+    <title>Frontend Mentor | News homepage</title>
 </head>
-<body>
+<body class="bg-off-white text-[15px] font-inter">
     <!-- container page -->
-    <div class="container">
-        <header>
+    <div class="max-w-[90%] xl:max-w-[1080px] mx-auto">
+        <header class="flex items-center justify-between py-6 mb-[2em]">
             <a href="/index.html" class="logo">
                 <img src="/assets/images/logo.svg" alt="Website Logo W.">
             </a>
-            <nav>
-                <ul>
+            <nav class="hidden md:block" aria-label="primary">
+                <ul class="flex items-center gap-[2em] text-dark-grayish-blue">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/" class="hover:text-soft-red">Home</a>
                     </li>
                     <li>
-                        <a href="/">New</a>
+                        <a href="/" class="hover:text-soft-red">New</a>
                     </li>
                     <li>
-                        <a href="/">Popular</a>
+                        <a href="/"class="hover:text-soft-red">Popular</a>
                     </li>
                     <li>
-                        <a href="/">Trending</a>
+                        <a href="/" class="hover:text-soft-red">Trending</a>
                     </li>
                     <li>
-                        <a href="/">Categories</a>
+                        <a href="/" class="hover:text-soft-red">Categories</a>
                     </li>
                 </ul>
             </nav>
+            <button id="openBtn" aria-label="Open menu" class="md:hidden">
+                <img src="/assets/images/icon-menu.svg" alt="icon-menu">
+            </button>
         </header>
 
+        <div id="mobile-navigation" class="hidden w-screen h-screen fixed top-0 left-0 z-[1000] bg-black/50 md:hidden">
+            <nav aria-label="mobile navigation" class="absolute top-0 right-0 w-[70%] h-full bg-off-white p-4">
+                <header class="flex justify-end py-[1em]">
+                    <button id="closeBtn" aria-label="close menu">
+                        <img src="/assets/images/icon-menu-close.svg" alt="icon-menu-close">
+                    </button>
+                </header>
+                <ul class="text-dark-grayish-blue space-y-4 mt-8">
+                    <li>
+                        <a href="/" class="hover:text-soft-red block">Home</a>
+                    </li>
+                    <li>
+                        <a href="/" class="hover:text-soft-red block">New</a>
+                    </li>
+                    <li>
+                        <a href="/" class="hover:text-soft-red block">Popular</a>
+                    </li>
+                    <li>
+                        <a href="/" class="hover:text-soft-red block">Trending</a>
+                    </li>
+                    <li>
+                        <a href="/" class="hover:text-soft-red block">Categories</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+
         <main>
-            <section aria-labelledby="sec-title">
-                <article>
-                    <picture>
+            <section aria-labelledby="sec-title" class="lg:grid lg:grid-cols-[2fr_1fr] gap-[2em]">
+                <article class="mb-[4em] md:mb-0">
+                    <picture class="w-full">
                         <source media="(min-width: 48rem)" srcset="/assets/images/image-web-3-desktop.jpg">
                         <img src="/assets/images/image-web-3-mobile.jpg" alt="" aria-hidden="true">
                     </picture>
-                    <div>
-                        <h2 id="sec-title">
+                    <div class="md:grid grid-cols-2 md:my-[3em] gap-[3em] lg:gap-[4em]">
+                        <h2 id="sec-title" class="font-[800] text-[3em] md:text-[4em] mt-[0.6em] mb-[0.4em] md:m-0 leading-none">
                             The Bright Future of Web 3.0?
                         </h2>
                         <div>
-                            <p>
+                            <p class="text-dark-grayish-blue font-[400] mb-[2em]">
                                 We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. 
                                 But is it really fulfilling its promise?
                             </p>
-                            <a href="/">Read more</a>
+                            <a href="/" class="block w-[50%] sm:w-[200px] py-[12px] px-[1em] text-center font-[700] tracking-[4px] bg-soft-red hover:bg-very-dark-blue hover:text-off-white">
+                                READ MORE
+                            </a>
                         </div>
                     </div>
                 </article>
 
-                <aside aria-labelledby="new-informations">
-                    <h2 id="new-informations">New</h2>
+                <aside aria-labelledby="new-informations" class="bg-very-dark-blue p-[1.5em] h-fit">
                     <div>
-                        <h4>Hydrogen VS Electric Cars</h4>
-                        <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
-                    </div>
-                    <div>
-                        <h4>The Downsides of AI Artistry</h4>
-                        <p>What are the possible adverse effects of on-demand AI image generation?</p>
-                    </div>
-                    <div>
-                        <h4>Is VC Funding Drying Up?</h4>
-                        <p>rivate funding by VC firms is down 50% YOY. We take a look at what that means.</p>
+                        <h2 id="new-informations" class="text-soft-orange text-[2em] font-[700] mb-[24px]">New</h2>
+                        <div class="pb-[3em] border-b border-b-grayish-blue">
+                            <h3 class="font-[700] mb-[5px] text-off-white hover:text-soft-orange">
+                                <a href="/">Hydrogen VS Electric Cars</a>
+                            </h3>
+                            <p class="text-grayish-blue font-[400]">Will hydrogen-fueled cars ever catch up to EVs?</p>
+                        </div>
+                        <div class="mt-[3em] pb-[3em] border-b border-b-grayish-blue">
+                            <h3 class="font-[700] mb-[5px] text-off-white hover:text-soft-orange">
+                                <a href="/">The Downsides of AI Artistry</a>
+                            </h3>
+                            <p class="text-grayish-blue font-[400]">What are the possible adverse effects of on-demand AI image generation?</p>
+                        </div>
+                        <div class="mt-[3em]">
+                            <h3 class="font-[700] mb-[5px] text-off-white hover:text-soft-orange">
+                                <a href="/">Is VC Funding Drying Up?</a>
+                            </h3>
+                            <p class="text-grayish-blue font-[400]">rivate funding by VC firms is down 50% YOY. We take a look at what that means.</p>
+                        </div>
                     </div>
                 </aside>
             </section>
 
-            <section>
-                <article>
+            <section class="mt-[4rem] md:mt-[2em] lg:mt-[0] grid grid-cols-1 gap-[2.5em] sm:gap-[1em] md:gap-[2em] sm:grid-cols-2 md:grid-cols-3">
+                <article class="flex items-center gap-[1.2em]">
                     <figure>
                         <img src="/assets/images/image-retro-pcs.jpg" alt="old computer illustration">
                     </figure>
                     <div>
-                        <h2>01</h2>
-                        <h4>
-                            <a href="/">Reviving Retro PCs</a>
-                        </h4>
-                        <p>What happens when old PCs are given modern upgrades?</p>
+                        <h2 class="text-[2em] font-[700] text-soft-red mb-[6px]">01</h2>
+                        <h3 class="mb-[12px]">
+                            <a href="/" class="font-[800] text-[1.2em] hover:text-soft-red">Reviving Retro PCs</a>
+                        </h3>
+                        <p class="text-dark-grayish-blue font-[400]">What happens when old PCs are given modern upgrades?</p>
                     </div>
                 </article>
 
-                <article>
+                <article class="flex items-center gap-[1.2em]">
                     <figure>
                         <img src="/assets/images/image-top-laptops.jpg" alt="Laptop keyboard illustration">
                     </figure>
                     <div>
-                        <h2>02</h2>
-                        <h4>
-                            <a href="/">Top 10 Laptops of 2022</a>
-                        </h4>
+                        <h2 class="text-[2em] font-[700] text-soft-red mb-[6px]">02</h2>
+                        <h3 class="mb-[12px]">
+                            <a href="/" class="font-[800] text-[1.2em] hover:text-soft-red">Top 10 Laptops of 2022</a>
+                        </h3>
                         <p>Our best picks for various needs and budgets.</p>
                     </div>
                 </article>
 
-                <article>
+                <article class="flex items-center gap-[1.2em]">
                     <figure>
                         <img src="/assets/images/image-gaming-growth.jpg" alt="game controler illustration">
                     </figure>
                     <div>
-                        <h2>03</h2>
-                        <h4>
-                            <a href="/">The Growth of Gaming</a>
-                        </h4>
+                        <h2 class="text-[2em] font-[700] text-soft-red mb-[6px]">03</h2>
+                        <h3 class="mb-[12px]">
+                            <a href="/" class="font-[800] text-[1.2em] hover:text-soft-red">The Growth of Gaming</a>
+                        </h3>
                         <p>How the pandemic has sparked fresh opportunities.</p>
                     </div>
                 </article>
             </section>
         </main>
-
-
-
-
     </div>
   
-  <footer class="attribution">
+  <footer class="attribution mt-[2em] mb-[1em]">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Nitiema Allassane</a>.
   </footer>
+
+  <script src="/src/js/app.js"></script>
 </body>
 </html>
